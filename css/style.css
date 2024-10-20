@@ -1,0 +1,181 @@
+/* Estilos para la navegación fija */
+.nav--fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  background-color: var(--bcolor-footer);
+  /* Estilo visual */
+}
+
+/* Estilos para el menú de navegación */
+.nav--menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 2rem;
+
+  height: 4rem;
+  /* Dimensión */
+  font-weight: bold;
+  border-top: 0.15rem solid var(--bcolor-border);
+}
+
+.nav--menu .nav--menu__item {
+  cursor: pointer;
+}
+
+.nav--menu__content {
+  margin: 1rem 1.2rem;
+}
+
+.nav--menu__item--active {
+  color: var(--bcolor-primary);
+}
+
+.box--form__note {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 80vh;
+}
+
+.box--form__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.flex--grow__full {
+  flex-grow: 1;
+}
+
+.box--form__item label {
+  font-weight: bold;
+}
+
+.box--form__item textarea {
+  resize: none;
+  flex-grow: 1;
+}
+
+/* css tarjetas*/
+.nota {
+  columns: 2;
+  column-gap: 1rem;
+}
+
+.nota__item {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+/*Card editable*/
+.nota--box__edit {
+  border: none;
+}
+
+.nota--header__edit {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.nota--title__edit {
+  display: block;
+  outline: none;
+  border-bottom: 1px solid;
+}
+
+.nota--title__edit::before,.nota--content__edit::before {
+  content: attr(data-placeholder);
+  color: #aaa;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.nota--title__edit:focus::before,
+.nota--title__edit:not(:empty)::before,
+.nota--content__edit:focus::before,
+.nota--content__edit:not(:empty)::before{
+  display: none;
+}
+
+.nota--content__edit {
+  display: block;
+  min-height: 20vh;
+  outline: none;
+  border-bottom: 1px solid;
+}
+
+.nota--fecha__edit {
+  display: block;
+  text-align: end;
+  font-size: 0.6rem;
+  line-height: 2.5;
+  margin-bottom: 5rem;
+}
+
+.nota--etiqueta__edit{
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  text-align: end;
+  font-style: italic;
+
+}
+.nota--title__grupo{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/*Animación*/
+@keyframes show {
+  from{
+    opacity: 0;
+    scale: 10%;
+  }
+
+  to{
+    opacity: 1;
+    scale: 100%;
+  }
+}
+
+.nota__item{
+  view-timeline-name: --reveal;
+  animation-name: show;
+  animation-fill-mode: both;
+
+  animation-timeline: --reveal;
+  animation-range: entry 10% cover 30%;
+}
+
+/*Boton de eliminar*/
+.float-button {
+  position: fixed;
+  bottom: 5rem;
+  right: 1.2rem;
+  z-index: 1000; /* Asegura que el botón esté siempre por encima de otros elementos */
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--bcolor-danger); /* Color del botón */
+  color: white; /* Color del texto */
+  padding: 10px 20px; /* Tamaño del botón */
+  border-radius: 50px; /* Bordes redondeados */
+  text-decoration: none; /* Sin subrayado */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+.btn:hover {
+  background-color: var(--bcolor-warning); /* Color al pasar el cursor por encima */
+}
+

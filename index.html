@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es" theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/defalut.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>NOTAS</title>
+</head>
+
+<body>
+  <section>
+    <header>
+
+    </header>
+    <main>
+      <section class="nav--menu__content" id="viewContent">
+      </section>
+    </main>
+    <footer class="nav--fixed">
+      <nav class="nav--menu">
+        <div id="idMenuNuevo" class="nav--menu__item nav--menu__item--active">Nuevo</div>
+        <div id="idMenuListar" class="nav--menu__item">Listar</div>
+        <!--<div id="idMenuCategoria" class="nav--menu__item">Categoria</div>-->
+        <!--<div id="idMenuCard" class="nav--menu__item">Card</div>-->
+      </nav>
+    </footer>
+  </section>
+  <!--TEMPLATE-->
+    <template id="tmtCardNota">
+      <section class="nota__item">
+        <div class="box">
+          <header class="box--header">
+            <h5 style="margin: 0;">Titulo</h5>
+            <span></span>
+          </header>
+          <main class="box--main">
+            <span data-id=""></span>
+          </main>
+        </div>
+      </section>
+    </template>
+    <template id="tmtLista">
+      <header>
+        <h2>Lista de notas</h2>
+      </header>
+      <main class="nota" id="idContentNota">
+      </main>
+    </template>
+    <template id="tmtListaCard">
+      <div class="box nota--box__edit" id="idCardTemplate">
+        <header class="box--header nota--box__edit nota--header__edit">
+          <div class="nota--title__grupo">
+            <strong>Título:</strong>
+            <input list="etiquetas" id="idEtiqueta" placeholder="Etiqueta" class="nota--etiqueta__edit">
+            <datalist id="etiquetas">
+              <option value="Importante">
+            </datalist>
+          </div>
+          <div>
+            <span data-id="" contenteditable="true" class="nota--title__edit" data-placeholder="Título..." id="idTitulo"></span>
+          </div>
+        </header>
+        <main class="box--main nota--box__edit">
+          <span contenteditable="true" class="nota--content__edit" data-placeholder="Ingrese el contenido..." id="idContenido"></span>
+          <span class="nota--fecha__edit" id="idHora"></span>
+        </main>
+      </div>
+    </template>
+    <template id="tmtEliminar">
+      <div class="float-button">
+        <a href="#" class="btn" id="btnEliminar">Eliminar</a>
+      </div>    
+    </template>
+  <!--FINDE LOS TEMPLATES-->  
+</body>
+
+<script src="js/db.js"></script>
+<script src="js/daoNota.js"></script>
+<script src="js/main.js"></script>
+
+</html>

@@ -1,0 +1,210 @@
+/* Estilos globales */
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+/* Variables globales */
+:root {
+  /* Colores del esquema */
+  --color-scheme: light;
+
+  /* Colores de fondo */
+  --bcolor-body: #fff;
+  --bcolor-header: #f6f7f8;
+  --bcolor-footer: #f6f8fa;
+  --bcolor-input: #f6f8fa;
+  --bcolor-btn: #f6f8fa;
+  --bcolor-border: #d0d7de;
+
+  /* Colores de texto */
+  --tcolor-title: #141515;
+  --tcolor-text-p: #1c2128;
+  --tcolor-text-s: #363b43;
+  --tcolor-text-t: #636c76;
+
+  /* Tamaños */
+  --font-size: 16px;
+
+  /* Sombras */
+  --shadow-inset-color: #1f23280a;
+  --shadow-inset: inset 0 0 1px 0;
+
+  /* Bordes */
+  --border-radius: 6px;
+
+  /* Colores temáticos */
+  --bcolor-primary: #1e88e5;
+  --bcolor-secondary:#95a5a6 ;
+  --bcolor-success: #039a71;
+  --bcolor-info: #010221;
+  --bcolor-warning: #EDAA25;
+  --bcolor-danger: #bd2a2e;
+}
+
+/* Tema oscuro */
+[theme=dark] {
+  --color-scheme: dark;
+  --bcolor-body: #22272e;
+  --bcolor-header: #1c2128;
+  --bcolor-footer: #2d333b;
+  --tcolor-title: #c5d1de;
+  --tcolor-text-p: #c1cbd6;
+  --tcolor-text-s: #a9b0b8;
+  --tcolor-text-t: #606871;
+  --bcolor-input: #2d333b;
+  --bcolor-btn: #373e47;
+  --bcolor-border: #444c56;
+  --shadow-inset-color: tomato; /* Añadido para el esquema dark */
+}
+
+/* Estilos para elementos en foco */
+input:focus, select:focus, textarea:focus {
+  --bcolor-border: #0088ffb5;
+  --shadow-inset: inset 0 0 0 0.12rem;
+  border: 1px solid var(--bcolor-border);
+  box-shadow: var(--shadow-inset) var(--bcolor-border);
+  outline: none;
+}
+
+/* Estilos para el documento HTML */
+html {
+  color-scheme: var(--color-scheme);
+  background-color: var(--bcolor-body);
+  font-family: "IBM Plex Sans", sans-serif;
+  font-style: normal;
+  font-size: var(--font-size);
+  color: var(--tcolor-title);
+}
+
+/* Estilos para inputs, selects y textareas */
+input, select, textarea {
+  background-color: var(--bcolor-input);
+  padding: 0.5em;
+  border: 1px solid var(--bcolor-border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-inset) var(--bcolor-border);
+  color: var(--tcolor-text-p);
+}
+
+/* Estilos para checkbox, radio, color y range inputs */
+[type=checkbox], [type=radio] {
+  width: 1rem;
+  height: 1rem;
+  border: none;
+}
+
+[type=checkbox]:focus, [type=radio]:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+[type=color] {
+  height: 2.2rem;
+  padding: .15rem;
+}
+
+[type="range"] {
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* Estilos para tablas */
+table {
+  width: 100%;
+  border: 0;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+table tr {
+  border-bottom: 1px solid var(--bcolor-border);
+}
+
+table thead {
+  text-align: left;
+  border-bottom: 2px solid var(--bcolor-border);
+  background-color: var(--bcolor-footer);
+}
+
+table tfoot {
+  background-color: var(--bcolor-footer);
+}
+
+table th, td {
+  padding: .5rem .5rem;
+  border-bottom-width: 1px;
+}
+
+/* Estilos para botones */
+button {
+  padding: .5rem 1.5rem;
+  text-align: center;
+  font-weight: 600;
+  border: 1px solid var(--bcolor-border);
+  border-radius: var(--border-radius);
+  background-color: var(--bcolor-btn);
+  color: var(--tcolor-text-s);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Estilos para fieldset */
+fieldset {
+  border: 1px solid var(--bcolor-border);
+  border-radius: var(--border-radius);
+}
+
+fieldset legend {
+  padding: 0rem 1rem;
+  font-weight: 500;
+}
+
+/* Estilos para boxes */
+.box, .box--form {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bcolor-body);
+  border: 1px solid var(--bcolor-border);
+  border-radius: var(--border-radius);
+}
+
+.box--header {
+  background-color: var(--bcolor-header);
+  border-bottom: 1px solid var(--bcolor-border);
+  border-top-left-radius:var(--border-radius);
+  border-top-right-radius:var(--border-radius);
+}
+
+.box--header, .box--main, .box--footer {
+  padding: 1rem;
+}
+
+.box--footer {
+  background-color: var(--bcolor-header);
+  border-top: 1px solid var(--bcolor-border);
+}
+
+.box--form {
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.box--form__group {
+  margin-bottom: 1rem;
+}
+
+.box--form__group > label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.box--form__group > [type=text] {
+  width: 100%;
+}
+
+/* Clases vacías para posibles personalizaciones */
+.box--form__label { }
+
+.box--form__input { }

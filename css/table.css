@@ -1,0 +1,45 @@
+.tbl--main{
+  max-width: 800px;
+  margin: auto;
+  padding: 1rem 2rem;
+}
+
+/*Truncar texto en las tablas*/
+.tbl--trun__text  th, .tbl--trun__text  td{
+  max-width: 10rem;
+  white-space: nowrap;        /* Evita que el texto se divida en varias líneas */
+  overflow: hidden;           /* Oculta cualquier contenido que exceda el ancho del contenedor */
+  text-overflow: ellipsis;    /* Añade '...' al final del texto truncado */
+}
+/*Ocultar el contenido de las celdas con contenidos colapsados*/
+.tbl--hid__text td:nth-child(7){
+  overflow: hidden;
+  max-width: 10rem;
+  white-space: nowrap;
+}
+
+
+/*Para agregar opciones en la cabecera de una tabla*/
+.tbl__header--option{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.tbl__header--option :nth-child(1){
+  flex-grow: 1;
+}
+.tbl__header--option :nth-child(2){
+  flex-grow: 2; 
+}
+.tbl__header--option select,.tbl__header--option input{
+  padding: 0.3rem 0.5rem;
+}
+.tbl__header--option input{
+  width: 100%;
+}
+.tbl--cell__hidden{
+  display: none;
+}
+.select--option__item{
+  background-color: var(--TColor-text-t)
+}
