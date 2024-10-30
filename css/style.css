@@ -179,3 +179,14 @@
   background-color: var(--bcolor-warning); /* Color al pasar el cursor por encima */
 }
 
+/*Nota card footer*/
+.nota__item--footer{
+  padding: 0rem 1rem 1rem;
+  font-style: italic;
+  text-align: end;
+  font-size: .7rem;
+}
+.nota__item--header{
+  display: flex;
+  justify-content: space-between;
+}

@@ -114,7 +114,21 @@ const DB = async function(nameDB) {
       };
     });
   }
-  
+  function getAllStores() {
+    return new Promise((resolve, reject) => {
+      const request = indexedDB.open(dbName, version);
+      request.onsuccess = (event) => {
+        const db = event.target.result;
+        // Obtener todos los nombres de los almacenes de objetos
+        const storeNames = Array.from(db.objectStoreNames);
+        resolve(storeNames);
+      };
+      request.onerror = (event) => {
+        reject(event.target.error);
+      };
+    });
+  }
+
   function openBD() {
     return new Promise(async (resolve, reject) => {
       try {
@@ -899,8 +913,25 @@ const DB = async function(nameDB) {
     checkIfStoreExists: async(storeName)=>{
      return await checkIfStoreExists(storeName);
     },
-    validar:()=>{
-      return isOpenBD('estudiantes');
+    deleteDatabase: async()=>{
+      return await deleteDatabase();
+    },
+    getAllStores:async ()=>{
+      return await getAllStores();
+    },
+    isOpenBD: async ()=>{
+      try {
+        const obj = await getAllStores();
+        if (obj.length>0) {
+          return isOpenBD(obj[0]);
+        }else{
+          return false;
+        }
+      } catch (error) {
+        console.error(error);
+        return false;
+      }
+      
     }
   }
 }

@@ -106,11 +106,13 @@ function addEnventNota() {
         NOTA.data.contenido = get("#idContenido").innerText;
         NOTA.data.fecha_creacion = `${new Date()}`;
         NOTA.data.fecha_edicion = null;
+        NOTA.data.etiqueta = get('#idEtiqueta').value;
          await NOTA.crearNota(NOTA.data);
       } else {
         NOTA.data.titulo = titulo;
         NOTA.data.contenido = get('#idContenido').innerText;
         NOTA.data.fecha_edicion = `${new Date()}`;
+        NOTA.data.etiqueta = get('#idEtiqueta').value;
         await NOTA.updateNota();
       }
       get("#idHora").innerText = getFormatoFechaHora();
@@ -143,8 +145,10 @@ async function listarNotas() {
 
   notas.data.forEach((d) => {
     const notaTemplate = getTemplate("#tmtCardNota");
-    notaTemplate.querySelector("h5").textContent = `${d.titulo} [${d.id}]`;
+    notaTemplate.querySelector("strong").textContent = `${d.titulo}`;
+    notaTemplate.querySelector("i").textContent = `[${d.etiqueta}]`;
     notaTemplate.querySelector(".box--main span").textContent = recortarTexto(d.contenido);
+    notaTemplate.querySelector(".nota__item--footer").textContent = getFormatoFechaHora(d.fecha_creacion);
     notaTemplate.querySelector("[data-id]").setAttribute("data-id", d.id);
     longitud.push(d.contenido.length);
     contentNota.appendChild(notaTemplate); // Agregar la nota al fragmento
@@ -206,6 +210,7 @@ function llenarContenidoNota(nota) {
 
   // Llenar el contenido de la tarjeta
   idTitulo.textContent = nota.titulo;
+  idEtiqueta.value=nota.etiqueta
   idContenido.innerText = nota.contenido;
   idHora.innerText = `Creado: ${getFormatoFechaHora(nota.fecha_creacion)}`;
 
